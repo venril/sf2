@@ -1,0 +1,11 @@
+aston_homepage:
+    path:     /
+    defaults: { _controller: AstonBundle:Default:index }
+aston_dasboard:
+    path:     /dashboard/{stats}
+    defaults: { _controller: AstonBundle:Default:dashboard,stats:0 }
+#    requirements:
+#       stats: "[a-z][a-z]"
+aston_about:
+    path:     /about
+    defaults: { _controller: AstonBundle:Default:about }

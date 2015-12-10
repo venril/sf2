@@ -1,0 +1,7 @@
+{% extends '::base.html.twig' %}
+{# empty Twig template #}
+
+{% block body %}
+{%block titre %} {{parent()}} - My Dashboard {% endblock %}
+<p> {{stats}} </p>
+{% endblock %}

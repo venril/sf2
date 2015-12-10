@@ -1,0 +1,7 @@
+aston:
+    resource: "@AstonBundle/Resources/config/routing.yml"
+    prefix:   /aston
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
