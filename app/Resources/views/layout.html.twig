@@ -4,16 +4,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Aston {% endblock%}</title>
-        {% stylesheets output="asset/css/compiled/main.css"
-        "vendor/bootstrap/css/boostrap.min.css"
-        "vendor/bootstrap/css/bootstrap-theme.min.css"
-        "asset/css/main.css"
+        {% stylesheets output='asset/css/compiled/main.css'
+        'vendor/bootstrap/css/boostrap.min.css'
+        'vendor/bootstrap/css/bootstrap-theme.min.css'
+        'asset/css/main.css'
          %}
          <link rel="stylesheet" href="{{ asset_url}}" >
         {% endstylesheets %}
     </head>
     <body>
-        
+        <div class="container">
+            <div class="row" >
+                <div class="col-md-8">{% block body %} {% endblock %} </div>
+                <div class="col-md-4">{% block aside %} {% endblock %}</div>
+            </div>
+            <div>
     </body>
 </html>
 
