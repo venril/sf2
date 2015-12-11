@@ -9,3 +9,17 @@ aston_dasboard:
 aston_about:
     path:     /about
     defaults: { _controller: AstonBundle:Default:about }
+    
+   # SessionsController
+   
+aston_sess_write:
+    path:     /write
+    defaults: { _controller: AstonBundle:Session:writeSess }
+
+aston_sess_read:
+    path:     /read
+    defaults: { _controller: AstonBundle:Session:readSess }
+
+aston_sess_tpl:
+    path:     /tpl
+    defaults: { _controller: AstonBundle:Session:tpl }

@@ -4,21 +4,35 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Aston {% endblock%}</title>
-        {% stylesheets output='asset/css/compiled/main.css'
-        'vendor/bootstrap/css/boostrap.min.css'
-        'vendor/bootstrap/css/bootstrap-theme.min.css'
-        'asset/css/main.css'
-         %}
-         <link rel="stylesheet" href="{{ asset_url}}" >
+        {% stylesheets output="asset/css/compiled/main.css"
+        "vendor/bootstrap/css/bootstrap.min.css"
+        "vendor/bootstrap/css/bootstrap-theme.min.css"
+        "asset/css/main.css"
+        %}
+        <link rel="stylesheet" href="{{ asset_url}}" >
         {% endstylesheets %}
     </head>
     <body>
-        <div class="container">
-            <div class="row" >
-                <div class="col-md-8">{% block body %} {% endblock %} </div>
-                <div class="col-md-4">{% block aside %} {% endblock %}</div>
-            </div>
-            <div>
-    </body>
-</html>
+        {% block header %} 
+            {% block navigation %}
+                {% include ':include:nav.html.twig' %}
+            {% endblock %}
+        {% endblock %}
+        {% block body %} 
+            <div class="container">
+                <div class="row" >
+                    <div class="col-md-8">{% block body %} {% endblock %} </div>
+                    <div class="col-md-4">{% block aside %} {% endblock %}</div>
+                </div>
+                <div>
+                {% endblock %}
+                {% block footer %} {% endblock %}
+                {% javascripts output="asset/js/compiled/main.js"
+                "vendor/jquery/jquery.min.js"
+                "vendor/bootstrap/js/bootstrap.min.js"
+                %}
+                <script src="{{ asset_url }}"></script>
+                {% endjavascripts %}
+                </body>
+                </html>
 
