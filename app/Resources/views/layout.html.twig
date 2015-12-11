@@ -18,10 +18,22 @@
                 {% include ':include:nav.html.twig' %}
             {% endblock %}
         {% endblock %}
+        {%block alert %}
+            <div class="container-fluid" >
+                {% for type, messages in app.session.flashbag.all %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{type}}" role="alert">
+                            {{ message }}
+                        </div>    
+                    {% endfor %}
+                {% endfor %}
+
+            </div>
+        {% endblock %}
         {% block body %} 
             <div class="container">
                 <div class="row" >
-                    <div class="col-md-8">{% block body %} {% endblock %} </div>
+                    <div class="col-md-8">{% block content %} {% endblock %} </div>
                     <div class="col-md-4">{% block aside %} {% endblock %}</div>
                 </div>
                 <div>

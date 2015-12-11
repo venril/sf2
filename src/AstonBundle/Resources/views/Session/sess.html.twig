@@ -1,0 +1,14 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+
+
+<ul>
+{% for key, user in users %}
+    <li> {{ key }} : {{ user }} </li>
+{% endfor %}
+</ul>
+
+Bonjour {{ app.session.get('prenom') }}
+<p> {{ app.session.getId }} </p>
+{%endblock%}
