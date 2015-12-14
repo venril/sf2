@@ -33,9 +33,13 @@ aston_todo_add:
     defaults: { _controller: AstonBundle:Todo:add }
     
 aston_todo_update:
-    path: /todo/update
+    path: /todo/update/{id}
     defaults: { _controller: AstonBundle:Todo:update }
+    requirements:
+        id: \d+
     
 aston_todo_delete:
-    path: /todo/delete
+    path: /todo/delete/{id}
     defaults: { _controller: AstonBundle:Todo:delete }
+    requirements:
+        id: \d+

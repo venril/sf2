@@ -1,1 +1,32 @@
-{# empty Twig template #}
+{% extends "::layout.html.twig" %}
+
+{% block content %}
+    <h2> Liste des taches <h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>#</th>
+                    <th>Tache</th>
+                    <th>Effectué</th>
+
+                </tr>
+                <tr>
+                    {% for task in tasks %}
+                        <td>{{task.id}} </td>
+                        <td>{{task.txt}} </td>
+                        <td>
+                            {% set done = task.done ?
+                                 {label:'success', val:'oui'} :
+                                 {label:'info',val:'non' } %}
+                            
+                                <span class="label label-{{done.label}}">{{done.val}} </span>
+                            
+                        </td>
+                        <td>
+                            <a href="{{ path('aston_todo_update',{id: task.id})}}" class='btn btn-default btn-xs btn-info'> Editer </a>
+                            <a href="{{ path('aston_todo_delete',{id: task.id})}}" class='btn btn-default btn-xs'> Supprimer </a>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endblock %}
