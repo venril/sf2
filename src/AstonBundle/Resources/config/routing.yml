@@ -23,3 +23,19 @@ aston_sess_read:
 aston_sess_tpl:
     path:     /tpl
     defaults: { _controller: AstonBundle:Session:tpl }
+    
+aston_todo:
+    path:     /todo
+    defaults: { _controller: AstonBundle:Todo:index }
+    
+aston_todo_add:
+    path: /todo/add
+    defaults: { _controller: AstonBundle:Todo:add }
+    
+aston_todo_update:
+    path: /todo/update
+    defaults: { _controller: AstonBundle:Todo:update }
+    
+aston_todo_delete:
+    path: /todo/delete
+    defaults: { _controller: AstonBundle:Todo:delete }
