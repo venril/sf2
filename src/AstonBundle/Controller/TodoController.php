@@ -3,6 +3,7 @@
 namespace AstonBundle\Controller;
 
 use AstonBundle\Entity\Todo;
+use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -14,7 +15,7 @@ class TodoController extends Controller {
         $repo = $this->getDoctrine()->getManager()->getRepository('AstonBundle:Todo');
         $tasks = $repo->findAll();
         if (!$tasks){
-            throw $this->createNotFoundException('Tasks not Found');
+            throw $this->createNotFoundException('Tasks not Found(find)');
         }
         
         return $this->render('AstonBundle:Todo:index.html.twig',array(
@@ -47,15 +48,47 @@ class TodoController extends Controller {
             'form' => $form->createView()));
     }
 
-    public function updateAction()
+    public function updateAction(Request $request)
     {
-
-        return $this->render('AstonBundle:Todo:form.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('AstonBundle:Todo');
+        $todo = $repo->find($request->get('id'));
+        if(!$todo){
+            throw new EntityNotFoundException('Task not found(update)');
+        }
+        $fb = $this->createFormBuilder($todo);
+        $fb->add('txt')
+           ->add('done')
+           ->add('save','submit',array('label' =>'sauvegarder'));
+        $form = $fb->getForm();
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()){
+             $em->persist($form->getData());
+             
+            $em->flush();
+            $this->addFlash('success', 'Tache mise à jour avec succès');
+            return $this->redirect($this->generateUrl('aston_todo'));
+        }
+        
+        return $this->render('AstonBundle:Todo:form.html.twig',array(
+            'form' => $form->createView(),
+        ));
     }
 
-    public function deleteAction()
+    public function deleteAction(Request $request)
     {
-        return $this->render('AstonBundle:Todo:index.html.twig');
-    }
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('AstonBundle:Todo');
+        $todo = $repo->find($request->get('id'));
+        
+        if(!$todo){
+            throw new EntityNotFoundException('Task not found(delete)');
+        } 
+            $em->remove($todo);           
+            $em->flush();
+            $this->addFlash('success', 'Tache supprimée avec succès');
+            return $this->redirect($this->generateUrl('aston_todo'));                         
+        }
 
 }
