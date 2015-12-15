@@ -6,12 +6,10 @@ imports:
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
-parameters:
-    locale: en
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -31,11 +29,18 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    
 
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    
+assetic:
+    debug: "%kernel.debug%"
+    bundles: ["AppBundle","AstonBundle"]
+    filters:
+        cssrewrite: ~
 
 # Doctrine Configuration
 doctrine:

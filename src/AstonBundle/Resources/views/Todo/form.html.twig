@@ -2,5 +2,31 @@
 
 {% block content %}
     <h2> Ajouter une tache </h2>
-            {{ form(form)}}
+    {{form_start(form)}}
+    <div class="form-group {% if not form.txt.vars.valid %} has-error {% endif %} " >
+        {{ form_label(form.txt)}}
+        {{ form_widget(form.txt, {'attr':{'class':'form-control' }}) }}
+        {% if form.txt.vars.errors | length > 0 %}
+            <ul class="list-unstyled">
+                <span class="help-block">
+                    {% for error in form.txt.vars.errors %}
+
+                        <li><i class="glyphicon glyphicon-exclamation-sign"> </i> {{ error.message }}  </li> 
+
+                        {% endfor %}
+                        </ul>
+                </span>
+            {% endif %}
+            
+    </div>
+
+    <div class="checkbox">
+        <label>
+            {{ form_widget(form.done)}} {{form.done.vars.label}}
+        </label>
+    </div>
+
+    {{ form_widget(form.save, {'attr':{'class':'btn btn-info btn-sm' }})}}
+    {{ form_rest(form) }}
+
 {% endblock %}

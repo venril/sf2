@@ -1,0 +1,6 @@
+## YAML Template.
+Todo Home Title: Tasklist
+Todo_Table_taskname: Task
+Todo_Table_taskdone: done
+App_false: no
+App_true: oui

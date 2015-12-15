@@ -29,7 +29,7 @@ class TodoController extends Controller {
         $todo = new Todo;
         $fb = $this->createFormBuilder($todo);
         $fb->add('txt')
-           ->add('done')
+           ->add('done',null, array('label' => 'Done'))
            ->add('save','submit',array(
               'label' => 'Sauvegarder'
               ));
@@ -58,7 +58,7 @@ class TodoController extends Controller {
         }
         $fb = $this->createFormBuilder($todo);
         $fb->add('txt')
-           ->add('done')
+           ->add('done',null, array('label' => 'Done'))
            ->add('save','submit',array('label' =>'sauvegarder'));
         $form = $fb->getForm();
         $form->handleRequest($request);

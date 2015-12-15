@@ -3,6 +3,7 @@
 namespace AstonBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Todo
@@ -23,14 +24,15 @@ class Todo
 
     /**
      * @var string
-     *
+     * 
+     * @Assert\NotBlank()
      * @ORM\Column(name="txt", type="string", length=255)
      */
     private $txt;
 
     /**
      * @var bool
-     *
+     * 
      * @ORM\Column(name="done", type="boolean")
      */
     private $done;

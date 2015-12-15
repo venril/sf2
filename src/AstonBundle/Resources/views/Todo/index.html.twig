@@ -1,12 +1,13 @@
 {% extends "::layout.html.twig" %}
 
 {% block content %}
-    <h2> Liste des taches <h2>
-            <table class="table table-striped">
+    <h2> {{ "Todo Home Title"|trans }} <h2>
+             
+            <table class="table table-striped"> 
                 <tr>
                     <th>#</th>
-                    <th>Tache</th>
-                    <th>Effectué</th>
+                    <th>{% trans %}Todo_Table_taskname{% endtrans %}</th>
+                    <th>{% trans %}Todo_Table_taskdone{% endtrans %}</th>
                     <th>Action</th>
 
                 </tr>
