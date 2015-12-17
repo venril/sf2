@@ -1,0 +1,25 @@
+{% extends "::layout.html.twig" %}
+
+{% block content %}
+    <h1> {{ 'Blog_Article' | trans }}</h1> 
+    
+    <table class="table table-striped"> 
+        <tr>
+            <th>#</th>
+            <th>{% trans %}blog_article_form_title{% endtrans %}</th> 
+            <th> actions </th> 
+        </tr>
+
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }} </td>
+                <td>{{ article.name}} </td>
+                <td>
+                    <a href="{{ path('blog_article_update',{id: category.id})}}" class='btn btn-default btn-xs btn-info'> Editer </a>
+                    <a href="{{ path('blog_article_delete',{id: category.id})}}" class='btn btn-default btn-xs'> Supprimer </a>
+                </td>
+
+            </tr>
+        {% endfor %}
+
+{% endblock %}

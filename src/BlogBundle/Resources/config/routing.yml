@@ -1,0 +1,39 @@
+blog_homepage:
+    path:     /
+    defaults: { _controller: BlogBundle:Article:index }
+    
+blog_article_add:
+    path:     /article/add
+    defaults: { _controller: BlogBundle:Article:add }
+    
+blog_article_update:
+    path:     /article/update/{id}
+    defaults: { _controller: BlogBundle:Article:update }
+    requirements:
+        id: \d+
+    
+blog_article_delete:
+    path:     /article/delete/{id}
+    defaults: { _controller: BlogBundle:Article:delete }
+    requirements:
+        id: \d+
+
+blog_category:
+    path:     /category
+    defaults: { _controller: BlogBundle:Category:index }
+    
+blog_category_add:
+    path:     /category/add
+    defaults: { _controller: BlogBundle:Category:add }
+    
+blog_category_update:
+    path:     /category/update/{id}
+    defaults: { _controller: BlogBundle:Category:update }
+    requirements:
+        id: \d+
+
+blog_category_delete:
+    path:     /category/delete/{id}
+    defaults: { _controller: BlogBundle:Category:delete }
+    requirements:
+        id: \d+

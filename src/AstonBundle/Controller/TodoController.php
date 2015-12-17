@@ -36,7 +36,7 @@ class TodoController extends Controller {
         $form = $fb->getForm();
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()){
             $em = $this->getDoctrine()->getManager();
             $em->persist($form->getData());
             $em->flush();

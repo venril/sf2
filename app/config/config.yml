@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@AstonBundle/Resources/config/services.yml" }
+    - { resource: "@BlogBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -35,10 +36,14 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources:
+          #  - ":form:fields.html.twig"
+            - "bootstrap_3_layout.html.twig"
     
 assetic:
-    debug: "%kernel.debug%"
-    bundles: ["AppBundle","AstonBundle"]
+   # debug: "%kernel.debug%"
+   # bundles: ["AppBundle","AstonBundle"]
     filters:
         cssrewrite: ~
 

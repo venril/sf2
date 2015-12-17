@@ -1,0 +1,15 @@
+## YAML Template.
+Todo Home Title: Tasklist
+Todo_Table_taskname: Task
+Todo_Table_taskdone: done
+App_false: no
+App_true: oui
+title : Title
+Blog_Article: articles
+blog_article_form_title : Title
+blog_article_form_teaser: Teaser
+blog_article_form_content : Content
+blog_article_form_creatAt : Create at
+blog_article_btn_save : Save
+blog_category_form_title : Title
+blog_category : category
