@@ -12,6 +12,8 @@ class CategoryController extends Controller {
 
     public function indexAction()
     {
+        $blogService = $this->get('blog');
+        var_dump($blogService->sayHello());
         $repo = $this->getDoctrine()->getManager()->getRepository('BlogBundle:Category');
         
         $categories = $repo->findAll();

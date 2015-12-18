@@ -48,12 +48,12 @@ class ArticleController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($form->getData());
             $em->flush();
-            $this->addFlash('success', 'Article ajouté avec succès');
+            $this->addFlash('success', 'Article modifié avec succès');
             return $this->redirect($this->generateUrl('blog_homepage'));
         }
 
         return $this->render('BlogBundle:Article:form.html.twig', array(
-                    'title' => 'Ajouter un article',
+                    'title' => 'Mise à jour d un article',
                     'form' => $form->createView(),
         ));
     }
