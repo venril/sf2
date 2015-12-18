@@ -11,10 +11,18 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
       $builder->add('title',null,array('label' => 'blog_article_form_title'))
+              ->add('category',null,array(
+                  'placeholder' => '--'
+              ))
               ->add('teaser',null,array('label' => 'blog_article_form_teaser'))
               ->add('content',null,array('label' => 'blog_article_form_content'))
               ->add('createdAt',null,array('label' => 'blog_article_form_creatAt'))
-              ->add('btn','submit',array('label' => 'blog_article_btn_save'));
+              ->add('btn','submit',array(
+                  'label' => 'blog_article_btn_save',
+                  'attr' => array(
+                      'class' => 'btn btn-primary',
+                  )
+                   ));
     }
 
 }

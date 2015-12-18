@@ -49,22 +49,20 @@ class CategoryController extends Controller {
     
     public function updateAction(Request $request)
     {   
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository('BlogBundle:Category');
-        $category = $repo->find($request->get('id'));
+        $em = $this->getDoctrine()->getEntityManager();
+        $category = new Category();
         $categoryType = new CategoryType();
         $form = $this->createForm($categoryType,$category);
         
         $handler = new CategoryHandler($form, $request, $em);
         if($handler->process()){
             $em->flush();
-            $this->addFlash('success', 'Catégorie modifier avec succès');
-            return $this->redirect($this->generateUrl('blog_category'));
-            
+            $this->addFlash('success', 'Catégorie mise à jour avec succès');
+            return $this->redirect($this->generateUrl('blog_homepage'));
         }
         
         return $this->render('BlogBundle:Category:form.html.twig', array(
-            'title' => 'Nouvelle Categorie',
+            'title' => 'Mise à jour d une Categorie',
             'form' => $form->createView(),
         ));
     }

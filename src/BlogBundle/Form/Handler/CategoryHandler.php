@@ -30,6 +30,7 @@ public function __construct( Form $form, Request $request, EntityManager $em)
 
 public function process()
 {
+    $this->onUpdate();
     $this->getForm()->handleRequest($this->getRequest());
     if($this->getRequest()->isMethod('post') && $this->getForm()->isValid()){
         $this->onSuccess();
@@ -38,9 +39,20 @@ public function process()
     return false;
 }
 
-protected function onSuccess()
+protected function onSuccess(EntityManager $em)
 {
     $this->getEm()->persist($this->getForm()->getData()); 
+  ;
+}
+protected function onUpdate(){
+    $id = $this->getRequest()->get('id');
+    if ($id){
+        $repo =  $this->getEm()->getRepository('BlogBundle:Category');
+        $category = $repo->find($id);
+        
+        $this->getForm()->setData($category);
+        $this->getForm()->add('save', 'submit', array('label' => 'Mettre à jour'));
+    }
 }
 
 public function createView()

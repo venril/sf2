@@ -45,16 +45,47 @@ class Article
      * @ORM\Column(name="content", type="text")
      */
     private $content;
-
+    
     /**
      * @var \Date
      *
+     *  
      * @ORM\Column(name="createdAt", type="date")
      */
     private $createdAt;
 
+    /**
+     * @var BlogBundle\Entity\Category
+     * @ORM\OneToOne(targetEntity="BlogBundle\Entity\Category", cascade={"persist"})
+     */
+    
+    private $category;
+    
+     /**
+     * Get Category
+     *
+     *  @return \BlogBundle\Entity\Article
+     */
+    
+    public function getCategory()
+    {
+        return $this->category;
+    }
 
     /**
+     * Set category
+     *
+     * @param \BlogBundle\Entity\Category $category
+     *
+     * @return \BlogBundle\Entity\Article
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+        /**
      * Get id
      *
      * @return int
