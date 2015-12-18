@@ -19,10 +19,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog <span class="caret"></span></a>
           <ul class="dropdown-menu">
               <li class="dropdown-header">Article</li>
-            <li><a href="{{path('blog_article_add') }}">Ajouter article</a></li>
-            <li><a href="{{path('blog_homepage') }}">Liste des articles</a></li> 
+              <li><a href="{{path('blog_article_add') }}"> {{ 'App_add' |trans }} article</a></li>
+            <li><a href="{{path('blog_article') }}">Liste des articles</a></li> 
             <li class="dropdown-header">Categorie</li>
-            <li><a href="{{path('blog_category_add') }}">Ajouter Categorie</a></li>
+            <li><a href="{{path('blog_category_add') }}">{{ 'App_add' |trans }} {{ 'blog_category' |trans }}</a></li>
             <li><a href="{{path('blog_category') }}">Liste des catégories</a></li> 
           </ul>
         </li>

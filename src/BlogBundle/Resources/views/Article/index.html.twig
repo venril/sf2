@@ -15,8 +15,8 @@
                 <td>{{ article.id }} </td>
                 <td>{{ article.title}} </td>
                 <td>
-                    <a href="{{ path('blog_article_update',{id: article.id})}}" class='btn btn-default btn-xs btn-info'> Editer </a>
-                    <a href="{{ path('blog_article_delete',{id: article.id})}}" class='btn btn-default btn-xs'> Supprimer </a>
+                    <a href="{{ path('blog_article_update',{id: article.id})}}" class='btn btn-default btn-xs btn-info'> {{'App_edit'|trans }} </a>
+                    <a href="{{ path('blog_article_delete',{id: article.id})}}" class='btn btn-default btn-xs'> {{ 'App_delete'|trans }} </a>
                 </td>
 
             </tr>

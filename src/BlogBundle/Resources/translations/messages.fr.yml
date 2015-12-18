@@ -4,6 +4,9 @@ Todo_Table_taskname: Tâches
 Todo_Table_taskdone: fait
 App_no: non
 App_yes: oui
+App_add : ajouter
+App_edit : modifier
+App_delete : supprimer
 title : Titre
 Blog_Article: Articles
 blog_article_form_title : Titre

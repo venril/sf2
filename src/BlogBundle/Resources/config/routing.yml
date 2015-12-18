@@ -2,6 +2,10 @@ blog_homepage:
     path:     /
     defaults: { _controller: BlogBundle:Article:index }
     
+blog_article:
+    path:     /article
+    defaults: { _controller: BlogBundle:Article:index }
+    
 blog_article_add:
     path:     /article/add
     defaults: { _controller: BlogBundle:Article:add }

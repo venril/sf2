@@ -4,6 +4,9 @@ Todo_Table_taskname: Task
 Todo_Table_taskdone: done
 App_false: no
 App_true: oui
+App_add : add
+App_edit : update
+App_delete : delete
 title : Title
 Blog_Article: articles
 blog_article_form_title : Title

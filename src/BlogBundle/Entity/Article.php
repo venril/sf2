@@ -49,7 +49,7 @@ class Article
     /**
      * @var \Date
      *
-     *  
+     *  @Assert\Date()
      * @ORM\Column(name="createdAt", type="date")
      */
     private $createdAt;

@@ -29,13 +29,14 @@ class CategoryController extends Controller {
         $em = $this->getDoctrine()->getEntityManager();
         $category = new Category();
         $categoryType = new CategoryType();
-        $form = $this->createForm($categoryType,$category);
+         $handler = new CategoryHandler($request,$em);
+        $handler->setForm($this->createForm($categoryType,$category));
         
-        $handler = new CategoryHandler($form, $request, $em);
+       
         if($handler->process()){
-            $em->flush();
+          
             $this->addFlash('success', 'Catégorie ajouté avec succès');
-            return $this->redirect($this->generateUrl('blog_homepage'));
+            return $this->redirect($this->generateUrl('blog_category'));
         }
         
         
@@ -54,7 +55,7 @@ class CategoryController extends Controller {
         $categoryType = new CategoryType();
         $form = $this->createForm($categoryType,$category);
         
-        $handler = new CategoryHandler($form, $request, $em);
+        $handler = new CategoryHandler($request, $em);
         if($handler->process()){
             $em->flush();
             $this->addFlash('success', 'Catégorie mise à jour avec succès');

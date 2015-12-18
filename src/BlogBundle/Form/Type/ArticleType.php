@@ -16,7 +16,10 @@ class ArticleType extends AbstractType
               ))
               ->add('teaser',null,array('label' => 'blog_article_form_teaser'))
               ->add('content',null,array('label' => 'blog_article_form_content'))
-              ->add('createdAt',null,array('label' => 'blog_article_form_creatAt'))
+              ->add('createdAt','date',array(
+                  'label' => 'blog_article_form_creatAt',
+                  
+                  ))
               ->add('btn','submit',array(
                   'label' => 'blog_article_btn_save',
                   'attr' => array(
