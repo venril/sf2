@@ -4,4 +4,6 @@ parameters:
 services:
     
     blog:
-        class: %blog.classs%
+        class: %blog.class%
+        arguments: ["Titre service blog"]
+        
